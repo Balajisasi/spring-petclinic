@@ -1,30 +1,15 @@
+version: 0.2
+
 phases:
   install:
     runtime-versions:
-      java: corretto11  # Specify the Java runtime version
-    commands:
-      - echo Installing Maven...
-      - apt-get update
-      - apt-get install -y maven
- 
-  pre_build:
-    commands:
-      - echo Checking out source code...
-      - mvn --version  # Validate Maven installation
- 
+      java: corretto11
   build:
     commands:
-      - echo Building the application...
-      - mvn clean install  # Compile and package the application
- 
-  post_build:
-    commands:
-      - echo Build completed successfully!
- 
+      - echo Build started on `date`
+      - mvn install
+
 artifacts:
   files:
-    - target/*.jar  # Specify the location of your built artifacts
- 
-cache:
-  paths:
-    - '/root/.m2/**/*'  # Cache Maven dependencies for faster builds
+    - target/*.jar
+
