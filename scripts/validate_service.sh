@@ -8,7 +8,7 @@ else
     echo "Apache is not running"
 fi
 
-# Install Java (OpenJDK)
+# Install Java after validation
 echo "Installing Java..."
 sudo apt-get update -y
 sudo apt-get install -y openjdk-11-jdk
@@ -18,4 +18,5 @@ echo "Verifying Java installation..."
 java -version
 
 echo "Java installation completed successfully."
+
 
