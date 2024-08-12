@@ -1,16 +1,16 @@
 #!/bin/bash
- 
-# Echo a message for logging
-echo "Starting Apache server"
- 
-# Start the Apache service
-sudo systemctl start apache2
- 
-# Check if the Apache service started successfully
-if systemctl is-active --quiet apache2; then
-    echo "Apache is running"
-    exit 0
-else
-    echo "Apache failed to start"
-    exit 1
-fi
+
+# Update the package list
+echo "Updating package list..."
+sudo apt-get update -y
+
+# Install Java (OpenJDK)
+echo "Installing Java..."
+sudo apt-get install -y openjdk-11-jdk
+
+# Verify Java installation
+echo "Verifying Java installation..."
+java -version
+
+echo "Java installation completed successfully."
+
